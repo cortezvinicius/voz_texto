@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - voztexto (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - voztexto (from `.symlinks/plugins/voztexto/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  voztexto:
+    :path: ".symlinks/plugins/voztexto/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  voztexto: 472990b88fd049894dfaebfe2e89fd88d615e96e
+
+PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
+
+COCOAPODS: 1.9.1

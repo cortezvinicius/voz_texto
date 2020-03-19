@@ -1,8 +1,8 @@
-name: voztexto
-description: A new Flutter plugin.
-version: 0.0.1
-author:
-homepage:
+name: voz_texto
+description: pugin que permite o usuário capturar a voz com o microfone e transformar a fala em texto nas plataformas Android e iOS.
+version: 1.0.0
+author: Vinicius Cortez
+homepage: https://github.com/cortezvinicius/voz_texto
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

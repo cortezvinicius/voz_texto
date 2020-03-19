@@ -9,6 +9,15 @@ public class SwiftVoztextoPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    result("iOS " + UIDevice.current.systemVersion)
+    if call.method == "vozTexto.iniciar"
+    {
+        let alert = UIAlertController(title: nil, message: "deu certo", preferredStyle: .alert)
+        let acao = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+        
+        alert.addAction(acao)
+        
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        
+    }
   }
 }
