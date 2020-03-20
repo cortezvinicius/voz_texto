@@ -1,23 +1,21 @@
-import Flutter
 import UIKit
+import Flutter
+import Speech
 
-public class SwiftVoztextoPlugin: NSObject, FlutterPlugin {
-  public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "voztexto", binaryMessenger: registrar.messenger())
-    let instance = SwiftVoztextoPlugin()
-    registrar.addMethodCallDelegate(instance, channel: channel)
-  }
 
-  public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    if call.method == "vozTexto.iniciar"
+public class SwiftVoztextoPlugin: NSObject, FlutterPlugin, SFSpeechRecognizerDelegate
+{
+    public static func register(with registrar: FlutterPluginRegistrar)
     {
-        let alert = UIAlertController(title: nil, message: "deu certo", preferredStyle: .alert)
-        let acao = UIAlertAction(title: "ok", style: .cancel, handler: nil)
-        
-        alert.addAction(acao)
-        
-        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
-        
+        <#code#>
     }
-  }
+    
+    public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult)
+    {
+        switch call.method
+        {
+            
+        }
+    }
+    
 }

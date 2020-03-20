@@ -27,7 +27,9 @@ class _HomeState extends State<Home>
 
   bool _botao_status = false;
   var _texto_fala = "texto fala";
-
+  Voztexto _voztexto;
+  bool _isAvailable = false;
+  bool _isListening = false;
 
   _clickBotao()
   {
@@ -36,9 +38,20 @@ class _HomeState extends State<Home>
       if(_botao_status == false)
       {
         _botao_status = true;
+
+        if (_isAvailable && !_isListening) {
+          _voztexto
+              .listen(locale: "pt_br")
+              .then((result) => print('$result'));
+        }
       }else
       {
         _botao_status = false;
+        if (_isListening) {
+          _voztexto.stop().then(
+                (result) => setState(() => _isListening = result),
+          );
+        }
       }
     });
   }
@@ -47,9 +60,39 @@ class _HomeState extends State<Home>
   void initState() {
     // TODO: implement initState
     super.initState();
-    Voztexto.iniciar();
+    //Voztexto.iniciar();
+    iniciar();
   }
 
+  void iniciar()
+  {
+    _voztexto = new Voztexto();
+
+    _voztexto.setAvailabilityHandler(
+          (bool result) => setState(() => _isAvailable = result),
+    );
+
+    _voztexto.setRecognitionStartedHandler(
+          () => setState(() => _isListening = true),
+    );
+
+    _voztexto.setRecognitionResultHandler(
+          (String speech) => setState(() => _texto_fala = speech),
+    );
+
+    _voztexto.setRecognitionCompleteHandler(
+          () => setState(() => _isListening = false),
+    );
+
+    _voztexto.activate().then(
+          (result) => setState(() => _isAvailable = result),
+    );
+
+
+  }
+
+  void onRecognitionComplete() => setState(() => _isListening = false);
+  
   @override
   Widget build(BuildContext context)
   {
